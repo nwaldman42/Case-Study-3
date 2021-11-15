@@ -32,10 +32,10 @@ for k=1:3000
     I = x_k_f(2, 1);
 end
 
-V_time_data_2 = [3000, 2];
+V_time_data_2 = [192000, 2];
 V_C = 0;
 I=0;
-for k=1:3000
+for k=1:192000
     A = [1, h/C_2; -h/L_2, 1-h*R_2/L_2];
     x_k = [V_C, I]';
     B = [0, h/L_2]';
@@ -70,7 +70,7 @@ for k=1:3000
     I = x_k_f(2, 1);
 end
 
-soundsc(V_time_data_3);
+soundsc(V_time_data_2(:, 1), 192000);
 
 
 figure;
