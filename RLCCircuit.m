@@ -1,4 +1,5 @@
-
+soundsc(V_time_data_3(1, :), 192000);
+%%
 V_C = 0;
 I = 0;
 V_in = 1;
@@ -70,7 +71,7 @@ for k=1:3000
     I = x_k_f(2, 1);
 end
 
-soundsc(V_time_data_2(:, 1), 192000);
+soundsc(V_time_data_3(1, :), 192000);
 
 
 figure;
