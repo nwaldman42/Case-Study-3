@@ -17,7 +17,7 @@ R_3 = .5;
 
 h = 1/192000;
 
-V_time_data_1 = [3000, 2];
+V_time_data_1 = [192000, 2];
 
 for k=1:192000
     A = [1, h/C_1; -h/L_1, 1-h*R_1/L_1];
@@ -46,7 +46,7 @@ for k=1:192000
     I = x_k_f(2, 1);
 end
 
-V_time_data_const = [3000, 1];
+V_time_data_const = [192000, 1];
 
 for k=1:192000
     V_time_data_const(k, 1) = V_in;
@@ -98,18 +98,23 @@ soundsc(V_time_data_3(:, 1), 192000);
 R = 100;
 L = .1;
 C = .1*10^-6;
-%f = ; choose various f from 10 to 10000
+f = 10; %choose various f from 10 to 10000
 
-V_time_data_1 = [3000, 2];
+V_time_data = [3000, 2];
 
-for k=1:192000
-    A = [1, h/C_1; -h/L_1, 1-h*R_1/L_1];
+for k=1:3000
+    A = [sin(2*pi*k*h*f), h/C_1; -h/L_1, sin(2*pi*k*h*f)-h*R_1/L_1];
     x_k = [V_C, I]';
     B = [0, h/L_1]';
     u_k = V_in;
     x_k_f= A*x_k + B*u_k;
-    V_time_data_1(k, 1) = I*R_1;
-    V_time_data_1(k, 2) = k*h;
+    V_time_data(k, 1) = I*R_1;
+    V_time_data(k, 2) = k*h;
     V_C = x_k_f(1, 1);
     I = x_k_f(2, 1);
 end
+
+figure;
+hold on;
+plot(V_time_data(:, 2),V_time_data(:, 1), "LineWidth", 2);
+hold off;
