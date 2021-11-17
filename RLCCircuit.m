@@ -98,17 +98,19 @@ soundsc(V_time_data_3(:, 1), 192000);
 R = 100;
 L = .1;
 C = .1*10^-6;
-f = 100; %choose various f from 10 to 10000
+f = 1000; %choose various f from 10 to 10000
+V_C = 0;
+I=0;
 
 V_time_data = [192000, 3];
 
 for k=1:192000
-    A = [sin(2*pi*k*h*f), h/C_1; -h/L_1, sin(2*pi*k*h*f)-h*R_1/L_1];
+    A = [1, h/C; -h/L, 1-h*R/L];
     x_k = [V_C, I]';
-    B = [0, h/L_1]';
-    u_k = V_in;
+    B = [0, h/L]';
+    u_k = sin(2*pi*k*h*f);
     x_k_f= A*x_k + B*u_k;
-    V_time_data(k, 1) = I*R_1;
+    V_time_data(k, 1) = I*R;
     V_time_data(k, 2) = k*h;
     V_time_data(k, 3) = sin(2*pi*k*h*f);
     V_C = x_k_f(1, 1);
@@ -121,6 +123,7 @@ figure;
 hold on;
 plot(V_time_data(:, 2),V_time_data(:, 1), "LineWidth", 2);
 plot(V_time_data(:, 2),V_time_data(:, 3), "LineWidth", 2);
+legend("out", "in");
 hold off;
 %%
 playSound(V_time_data(:, 1), 192000);
