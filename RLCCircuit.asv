@@ -98,7 +98,7 @@ soundsc(V_time_data_3(:, 1), 192000);
 R = 100;
 L = .1;
 C = .1*10^-6;
-f = 100; %choose various f from 10 to 10000
+f = 5000; %choose various f from 10 to 10000
 
 V_time_data = [192000, 3];
 
