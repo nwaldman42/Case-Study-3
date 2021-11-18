@@ -21,6 +21,9 @@ for k=1:5000
     V_time_data_good(k, 3) = k*h_good;
 end
 
+% Reset initial V_C for h_bad charging
+V_C = 0;
+
 for k=1:5000
      V_C_f = (1-h_bad/(R*C))*V_C+h/(R*C)*V_in;
      V_C = V_C_f;
