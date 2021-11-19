@@ -9,3 +9,5 @@ plot(sensed);
 legend("original", "sensed");
 hold off;
 
+%%
+playSound(sensed, Fs);
