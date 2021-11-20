@@ -3,15 +3,17 @@
 
 steps = 192000;
 h = 1/steps;
-f = 440;
-multiply = 5;
+f = 440;            % frequency tuned to
 
-Vin = zeros(steps*f*multiply*h, 1);
-for k = 1:steps*f*multiply*h
-    Vin(k, 1) = sin(2*pi*k*h*f);
-end
+% multiply = 5;
+% 
+% Vin = zeros(steps*f*multiply*h, 1);
+% for k = 1:steps*f*multiply*h
+%     Vin(k, 1) = sin(2*pi*k*h*f);
+% end
 
 Vin = ones(1, 1);
+Vin = Vin*10^-100
 Vout = myResonatorCircuit(Vin, h);
 
 
@@ -19,7 +21,9 @@ Vout = myResonatorCircuit(Vin, h);
 %%
 playSound(Vin(:, 1), steps);
 pause(1);
-playSound(Vout(:, 1), steps);
+%playSound(Vout(:, 1), steps);
+%pause(1);
+soundsc(Vout(:, 1), steps);
 
 
 V_time_data = zeros(size(Vout, 1), 1);
