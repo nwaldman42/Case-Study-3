@@ -13,7 +13,7 @@ f = 440;            % frequency tuned to
 % end
 
 Vin = ones(1, 1);
-Vin = Vin*10^-100
+Vin = Vin*10^-100;
 Vout = myResonatorCircuit(Vin, h);
 
 
