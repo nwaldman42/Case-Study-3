@@ -20,8 +20,8 @@
 %filter everything out that's in between
 
 function Vout = myFilterCircuit(Vin,h)
-R = 2300000/(767*pi);
-L = 2500/(767*pi^2);
+R = 4450000/(1711*pi);
+L = 5000/(1711*pi^2);
 C = 10^-6;
 V_C = 0;
 V_data = [1, length(Vin)];
