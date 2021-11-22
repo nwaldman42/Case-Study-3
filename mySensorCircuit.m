@@ -16,13 +16,20 @@
 % Vout - time-series vector representing the output voltage of a circuit
 
 function Vout = mySensorCircuit(Vin,h)
-R = 6250*pi/9;
+%choose values for R, L, and C
+R = 6250*pi/9; 
 L = 625/(18*pi^2);
 C = 10^-6;
+
+%initialize circuit with no current and no voltage difference across
+%capacitor
 V_C = 0;
-V_data = [1, length(Vin)];
 I = 0;
 
+%create a blank vector to store data
+V_data = [1, length(Vin)];
+
+%run RLC linear dynamical system with chosen values
 for k=1:length(Vin)
     A = [1, h/C; -h/L, 1-h*R/L];
     x_k = [V_C, I]';
@@ -33,5 +40,5 @@ for k=1:length(Vin)
     I = x_k_f(2, 1);
 end
 
-Vout = V_data;
+Vout = V_data';
 end

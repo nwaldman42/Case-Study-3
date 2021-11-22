@@ -37,5 +37,5 @@ for k=1:length(Vin)
     I = x_k_f(2, 1);
 end
 
-Vout = V_data;
+Vout = V_data';
 end
