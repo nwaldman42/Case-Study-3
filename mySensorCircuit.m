@@ -17,8 +17,8 @@
 
 function Vout = mySensorCircuit(Vin,h)
 %choose values for R, L, and C
-R = 6250*pi/9; 
-L = 625/(18*pi^2);
+R = 225.56;
+L = 15625/(441*pi^2);
 C = 10^-6;
 
 %initialize circuit with no current and no voltage difference across
