@@ -13,6 +13,7 @@ Vpulse = zeros(length(0:(1/Fs):5),1);     % 5-second duration
 Vpulse(2) = 1;
 
 Vringing = myResonatorCircuit(Vpulse,1/Fs);
+%%
 soundsc(Vringing,Fs);
 
 %% Task 2: Audio sensor
@@ -54,3 +55,4 @@ playSound(Vsound,Fs);
 
 % play sound after circuit filter
 playSound(VsoundFiltered,Fs);
+
