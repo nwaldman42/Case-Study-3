@@ -7,7 +7,7 @@ V_R = 0; %initial voltage across resistor is 0
 
 %choose a value for h
 h_good = 10^-6;
-h_bad = 10^-5;
+h_bad = 10^-3;
 
 %create empty matrices to store values in
 V_time_data_good = [5000, 3];
