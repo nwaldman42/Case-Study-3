@@ -346,3 +346,5 @@ title("RLC Voltage v.s. Time", "FontSize", 14);
 xlabel("time (s)", "FontSize", 14);
 ylabel("voltage (V)", "FontSize", 14);
 hold off;
+%%
+playSound(V_time_dataf3(:, 1).*1000, 192000);
